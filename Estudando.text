@@ -1,0 +1,12 @@
+criando packet.json: npm init -y
+
+criando server.js:
+    - importando método interno do node
+    - ESmodules  => import/ export pra ele funcionar dentro do node, precisamos acessar packet json e criar   "type": "module", 
+        assim podemos usar from ao inves de require ao importar o http (const http = require('http'); = import http from 'http')
+    - diferenciar modulo interno dos de terceiros usar 'node:http' usar o node na frente
+    - httpie para rodar direto no localhost
+
+packet.json:
+    - atualizando servidor de forma automática node --watch src/server.js
+        criando script "dev": "node --watch src/server.js" digitar comando npm run dev
