@@ -29,9 +29,17 @@ packet.json:
     - Stateful - Stateless 
         stateful sempre tem informações guardando em memória
     - array para string: JSON.stringfy(users)
-    - Cabeçalhos (req/res) => metadados, quando colocamos o cabeçalho HEADER definimos o tipo de dado que o navegador está lendo, dai fica mais bonitinho
+    - Cabeçalhos(Headers) (req/res) => metadados, quando colocamos o cabeçalho HEADER definimos o tipo de dado que o navegador está lendo, dai fica mais bonitinho
         response.setHeader('Content-type', 'aplication/json').end(JSON.stringify(users))
     
     - HTTP status code
         mdn http status code: guia 
         metodo writeHead
+
+aula 3 Streams no node (streams/fundamentals.js)
+    - ler (ou escrever) os dados aos poucos e processando enqauno o arqueivo ainda esta baixando
+    - Readable = leitura / Writeable = escrita
+    - no node toda porta de entrada e saida é uma stream
+    - Tudo o que estou dando de entrada estou encaminhando para uma saida
+        process.stdin //leitura
+            .pipe(process.stdout); //escrita
