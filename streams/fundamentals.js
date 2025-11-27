@@ -1,7 +1,7 @@
 // process.stdin
 //     .pipe(process.stdout);
 
-import { Readable} from 'node:stream';
+import { Readable, Writable} from 'node:stream';
 
 class OneToHoudredStream extends Readable {
     index =  1
@@ -15,10 +15,19 @@ class OneToHoudredStream extends Readable {
             const buf = Buffer.from(String(i))
             this.push(buf)
         }
-        },100)
+        },1000)
 
         
     }
 }
 
-new OneToHoudredStream().pipe(process.stdout)
+class  MultiplyByTenStream extends Writable{
+    _write(chunk, encoding, callback){
+        console.log(Number(chunk.toString()) * 10)
+        callback()
+    }
+
+}
+
+new OneToHoudredStream()
+    .pipe(new MultiplyByTenStream())
