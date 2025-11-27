@@ -1,3 +1,5 @@
+-- aula 1
+
 criando packet.json: npm init -y
 
 criando server.js:
@@ -5,8 +7,31 @@ criando server.js:
     - ESmodules  => import/ export pra ele funcionar dentro do node, precisamos acessar packet json e criar   "type": "module", 
         assim podemos usar from ao inves de require ao importar o http (const http = require('http'); = import http from 'http')
     - diferenciar modulo interno dos de terceiros usar 'node:http' usar o node na frente
-    - httpie para rodar direto no localhost
+    - httpie para rodar direto no localhost  python -m httpie GET localhost:3333/users 
 
 packet.json:
     - atualizando servidor de forma automática node --watch src/server.js
         criando script "dev": "node --watch src/server.js" digitar comando npm run dev
+
+-- aula 2 estrutura da aplicação 
+    - http
+        - method http
+        - URL
+    - Métodos HTTP:
+        GET, POST, PUT, PATCH, DELETE
+
+        GET => buscar recurso no back-end
+        POST => criar uma recurso no back-end
+        PUT => editar/ atualizar um recurso no back-end
+        PATH => atualixar uma informação única ou especifica no bac-end
+        DELETE => deletar um recurso do back-end
+    
+    - Stateful - Stateless 
+        stateful sempre tem informações guardando em memória
+    - array para string: JSON.stringfy(users)
+    - Cabeçalhos (req/res) => metadados, quando colocamos o cabeçalho HEADER definimos o tipo de dado que o navegador está lendo, dai fica mais bonitinho
+        response.setHeader('Content-type', 'aplication/json').end(JSON.stringify(users))
+    
+    - HTTP status code
+        mdn http status code: guia 
+        metodo writeHead
