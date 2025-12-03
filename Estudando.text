@@ -37,9 +37,15 @@ packet.json:
         metodo writeHead
 
 aula 3 Streams no node (streams/fundamentals.js)
+3.1-3
     - ler (ou escrever) os dados aos poucos e processando enqauno o arqueivo ainda esta baixando
-    - Readable = leitura / Writeable = escrita
+    - Readable = leitura / Writeable = escrita / Transform = transformação
     - no node toda porta de entrada e saida é uma stream
     - Tudo o que estou dando de entrada estou encaminhando para uma saida
         process.stdin //leitura
             .pipe(process.stdout); //escrita
+
+3.4
+    stream-http-server.js
+    - fetch API: API completa para trabalhar com requisições e respostas de forma completa
+    - 
