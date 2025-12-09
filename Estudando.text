@@ -54,3 +54,6 @@ aula 3 Streams no node (streams/fundamentals.js)
     - Buffers: represenatção de um spaço na memoria do computador usado para transitar os dados de forma rápida
         - guarda de forma binária
         - typedarray: ninguem usa
+3.8
+    - Dividindo server
+        criando pasta middlewares, um interceptador, função que vai insterceptar nossa requisição, sempre vai usar req e res
