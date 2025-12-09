@@ -5,9 +5,20 @@ import http from 'node:http'
 // ESmodules  => import/ export
 const users = []
 
-const server = http.createServer((request, response) => {
+const server = http.createServer(async(request, response) => {
     const { method, url } = request
-    console.log(request.headers)
+
+    const buffers = []
+
+    for await (const chunk of request){
+        buffers.push(chunk)
+    }
+
+    try{
+        request.body = JSON.parse(Buffer.concat(buffers).toString())
+    }catch{
+        request.body = null
+    }
 
     if (method === 'GET' && url === '/users') {
         return response
@@ -16,10 +27,12 @@ const server = http.createServer((request, response) => {
     }
 
     if (method === 'POST' && url === '/users') {
+        const { nome, email } = request.body
+
         users.push({
             id: 1,
-            name: 'Alicia',
-            email: 'alicia@example.com'
+            nome,
+            email,
         })
 
         return response.writeHead(201).end()

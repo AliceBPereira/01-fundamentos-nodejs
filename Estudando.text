@@ -48,4 +48,9 @@ aula 3 Streams no node (streams/fundamentals.js)
 3.4
     stream-http-server.js
     - fetch API: API completa para trabalhar com requisições e respostas de forma completa
-    - 
+3.6
+    - parse trandorma em tipo primitivo do js
+3.7
+    - Buffers: represenatção de um spaço na memoria do computador usado para transitar os dados de forma rápida
+        - guarda de forma binária
+        - typedarray: ninguem usa
