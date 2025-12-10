@@ -1,10 +1,11 @@
 import http from 'node:http'
+import { randomUUID } from 'node:crypto'
 import { json } from '../src/middlewares/json.js'
-
+import { Database } from './database.js'
 // Aplicaçoes em nodejs rodam em um servidor, entao precisamos criar um servidor para nossa aplicaçao.
 // CommonJS  =>require 
 // ESmodules  => import/ export
-const users = []
+const database = new Database()
 
 const server = http.createServer(async(request, response) => {
     const { method, url } = request
@@ -12,6 +13,7 @@ const server = http.createServer(async(request, response) => {
     await json(request, response)
 
     if (method === 'GET' && url === '/users') {
+        const users = database.select('users')
         return response
             .end(JSON.stringify(users))
     }
@@ -19,11 +21,12 @@ const server = http.createServer(async(request, response) => {
     if (method === 'POST' && url === '/users') {
         const { nome, email } = request.body
 
-        users.push({
-            id: 1,
+        const user ={
+            id: randomUUID(),
             nome,
             email,
-        })
+        }
+        database.insert('users', user)
 
         return response.writeHead(201).end()
     }

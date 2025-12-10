@@ -57,3 +57,11 @@ aula 3 Streams no node (streams/fundamentals.js)
 3.8
     - Dividindo server
         criando pasta middlewares, um interceptador, função que vai insterceptar nossa requisição, sempre vai usar req e res
+
+    Geral sobre Streams
+        O que são Streams? Mecanismos para ler e escrever dados de forma assíncrona, controlada e em partes
+        O que o método .pipe faz quando é chamado em uma Stream? Encaminha os dados provindos de uma stream para outra
+
+
+4 - Banco de dados
+    randomuuid
